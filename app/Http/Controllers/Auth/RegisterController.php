@@ -88,6 +88,7 @@ class RegisterController extends Controller
             'user_id' => $data->id,
             'opd_id' => $data['opd_id'],
             'role' => $data['status'],
+            'status' => 'Registrasi',
         ]);
         return $data;
     }

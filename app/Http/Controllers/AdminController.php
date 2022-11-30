@@ -84,6 +84,33 @@ class AdminController extends Controller
         return abort(403, "Silahkan Login Terlebih Dahulu");
     }
 
+    public function userRegisDetailUpdate($id)
+    {
+        $this->authorize('administrator', User::class);
+        if ($this->user->isAdministrator()) {
+            $regis = ModelHasUser::getUserById($id);
+            if ($regis) {
+                $data = User::where('id', $regis->user_id)->update([
+                    'name' => $regis->name,
+                    'opd_id' => $regis->opd_id,
+                    'nama_opd' => $regis->opd->name,
+                    'nip' => $regis->nip,
+                    'status' => $regis->role,
+                ]);
+                if ($data == 1) {
+                    $asrole = User::getUserById($regis->user_id);
+                    $asrole->assignRole($regis->role);
+                    // ModelHasUser::modelHasUserDelete($id);
+                    ModelHasUser::userRegisSuccess($id);
+                    return back()->with('success', 'Berhasil validasi data user baru');
+                }
+                return back()->with('warning', 'Gagal validasi data user baru');
+            }
+            return back()->with('warning', 'Data tidak ditemukan');
+        }
+        return abort(403, "Silahkan Login Terlebih Dahulu");
+    }
+
     public function userDelete($id)
     {
         $this->authorize('administrator', User::class);
@@ -114,34 +141,6 @@ class AdminController extends Controller
         if ($this->user->isAdministrator()) {
             ModelHasUser::userDeleteById($id);
             return back()->with('success', 'Berhasil menghapus data');
-        }
-        return abort(403, "Silahkan Login Terlebih Dahulu");
-    }
-    
-
-    public function userRegisDetailUpdate($id)
-    {
-        $this->authorize('administrator', User::class);
-        if ($this->user->isAdministrator()) {
-            $regis = ModelHasUser::getUserById($id);
-            if ($regis) {
-                $data = User::where('id', $regis->user_id)->update([
-                    'name' => $regis->name,
-                    'opd_id' => $regis->opd_id,
-                    'nama_opd' => $regis->opd->name,
-                    'nip' => $regis->nip,
-                    'status' => $regis->role,
-                ]);
-                if ($data == 1) {
-                    $asrole = User::getUserById($regis->user_id);
-                    $asrole->assignRole($regis->role);
-                    // ModelHasUser::modelHasUserDelete($id);
-                    ModelHasUser::userRegisSuccess($id);
-                    return back()->with('success', 'Berhasil validasi data user baru');
-                }
-                return back()->with('warning', 'Gagal validasi data user baru');
-            }
-            return back()->with('warning', 'Data tidak ditemukan');
         }
         return abort(403, "Silahkan Login Terlebih Dahulu");
     }
