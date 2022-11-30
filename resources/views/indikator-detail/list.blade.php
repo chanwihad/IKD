@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="sm3-card">
-                    <table class="table table-hover" id="indikator-list" style='text-align:center; vertical-align:middle'>
+                    <table class="table table-hover" id="indikator-list">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
