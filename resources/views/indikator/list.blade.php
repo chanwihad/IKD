@@ -5,10 +5,10 @@
 @section('indicator-list')
 
 <div class="margin-judul">
-    <h1>Manajemen Indikator</h1>
+    <h1>Daftar Per Indikator</h1>
     <ol class="breadcrumb" style="background: none; padding: 10px 0px;">
         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-        <li class="active">Daftar Indikator</li>
+        <li class="active">Daftar Per Indikator</li>
     </ol>
 </div>
 
@@ -18,7 +18,7 @@
             <div class="sm3-card">
                 <div class="db-flex">
                     <h3 style="margin: 0px;"> Daftar Indikator</h3>
-                    @if(!$user->isAdministrator())
+                    @if($user->isValidator() || $user->isProdusenData())
                     <div style="margin-left:auto;">
                         <div class="db-flex">
                             <div class="db-flex" style="column-gap: 0px;">

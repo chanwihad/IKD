@@ -90,7 +90,6 @@ class User extends Authenticatable
     {
         return User::where('id', $id)->update([
             'nip' => NULL,
-            'nama_opd' => NULL,
         ]);
     }
 

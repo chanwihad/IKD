@@ -2,8 +2,8 @@
 <div class="left-sidebar-pro">
     <nav id="sidebar" class="active">
         <div class="sidebar-header">
-            <a href="{{ route('dashboard') }}"><img class="main-logo" src="{{ URL::asset('assets/img/logo/logo.png') }}" alt="" /></a>
-            <strong><a href="{{ route('dashboard') }}"><img src="{{ URL::asset('assets/img/logo/logosn.png') }}" alt="" /></a></strong>
+            <a href="{{ route('dashboard') }}"><img style="margin-top: 10px;" class="main-logo" src="{{ URL::asset('assets/img/logo/logopsn.png') }}" alt="" /></a>
+            <strong><a href="{{ route('dashboard') }}"><img src="{{ URL::asset('assets/img/logo/logo.png') }}" alt="" /></a></strong>
         </div>
         <div class="left-custom-menu-adp-wrap comment-scrollbar">
             <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -19,13 +19,13 @@
                     <li>
                         <a href="{{ route('validatorIndicatorList') }}" aria-expanded="false"><span class="educate-icon educate-event icon-wrap"></span> <span class="mini-click-non">Daftar Indikator</span></a>
                         <a href="{{ route('validatorIndicatorCreate') }}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Buat Indikator Baru</span></a>
-                        <a href="{{ route('validatorIndicatorDetailCreate') }}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Tambah Jenis Indikator</span></a>
+                        <a href="{{ route('validatorIndicatorDetailCreate') }}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Tambah Data Indikator</span></a>
                     </li>
                     @elseif(Auth::User()->isProdusenData())
                     <li>
                         <a href="{{ route('produsenDataIndicatorList') }}" aria-expanded="false"><span class="educate-icon educate-event icon-wrap"></span> <span class="mini-click-non">Daftar Indikator</span></a>
                         <a href="{{ route('produsenDataIndicatorCreate') }}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Buat Indikator Baru</span></a>
-                        <a href="{{ route('produsenDataIndicatorDetailCreate') }}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Tambah Jenis Indikator</span></a>
+                        <a href="{{ route('produsenDataIndicatorDetailCreate') }}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Tambah Data Indikator</span></a>
                     </li>
                     @elseif(Auth::User()->isAdministrator())
                     <li>

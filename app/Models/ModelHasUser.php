@@ -60,6 +60,7 @@ class ModelHasUser extends Model
             'user_id' => $data->id,
             'opd_id' => $data->opd_id,
             'role' => $data->status,
+            'status' => 'Tidak Aktif',
         ]);
     }
 

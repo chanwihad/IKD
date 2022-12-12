@@ -6,14 +6,14 @@
 
 <div class="margin-judul">
     <h3 style="font-weight: 400;">Dashboard</h3>
-    <h1>Data Indicator Management</h1>
+    <h1>Aplikasi Indikator Kinerja Daerah</h1>
 </div>
 
 <div class="sm3-container">
     <div class="row sm3-card" style="padding: 50px 15px !important;">
         <div class="col-md-4">
             <h3>Hi, {{$user->name}}!</h3> <br><br>
-            <p>Selamat datang di <b>Data Indicator Management.<br>
+            <p>Selamat datang di <b>SIDINDA.<br>
                 </b> Kamu dapat melihat data indikator<br>
                 dan mengelolanya disini<br></p> <br>
             @if($user->isAdministrator())

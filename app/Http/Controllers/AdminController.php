@@ -71,19 +71,6 @@ class AdminController extends Controller
         return abort(403, "Silahkan Login Terlebih Dahulu");
     }
 
-    public function userStatusUpdate($id)
-    {
-        $this->authorize('administrator', User::class);
-        if ($this->user->isAdministrator()) {
-            $user = User::getUserById($id);
-            $user->removeRole($user->status);
-            ModelHasUser::userUpdateStatus($user);
-            User::userStatusUpdate($id);
-            return back()->with('success', 'Berhasil Mengubah Status User');
-        }
-        return abort(403, "Silahkan Login Terlebih Dahulu");
-    }
-
     public function userRegisDetailUpdate($id)
     {
         $this->authorize('administrator', User::class);
@@ -135,10 +122,32 @@ class AdminController extends Controller
         return abort(403, "Silahkan Login Terlebih Dahulu");
     }
 
+    public function userStatusUpdate($id)
+    {
+        $this->authorize('administrator', User::class);
+        if ($this->user->isAdministrator()) {
+            $user = User::getUserById($id);
+            $user->removeRole($user->status);
+            ModelHasUser::userUpdateStatus($user);
+            User::userStatusUpdate($id);
+            return back()->with('success', 'Berhasil Mengubah Status User');
+        }
+        return abort(403, "Silahkan Login Terlebih Dahulu");
+    }
+
     public function userValidationDelete($id)
     {
         $this->authorize('administrator', User::class);
         if ($this->user->isAdministrator()) {
+            $getUser = ModelHasUser::getUserById($id);
+            if ($getUser->status == "Registrasi") {
+                User::userDelete($getUser->user_id);
+            }
+            else if ($getUser->status == "Tidak Aktif") {
+                User::where('id', $getUser->user_id)->update([
+                    'nip' => $getUser->nip,
+                ]);
+            }
             ModelHasUser::userDeleteById($id);
             return back()->with('success', 'Berhasil menghapus data');
         }

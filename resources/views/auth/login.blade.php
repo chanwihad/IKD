@@ -18,13 +18,12 @@
 
 <body>
 
-    <img src="log/images/login-header.png" alt="Image" class="img-header">
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
-                    <div class="wrap d-md-flex">
-                        <div class="img img-fluid" style="background-image: url(assets/img/login.jpeg);">
+                    <div class="wrap d-md-flex" style="background-color: #BEF8BB;">
+                        <div class="img img-fluid" style="background-image: url(assets/img/login.png);">
                         </div>
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">

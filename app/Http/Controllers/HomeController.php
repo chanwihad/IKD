@@ -28,8 +28,6 @@ class HomeController extends Controller
      */
     public function dashboard()
     {
-        // \Auth::User()->assignRole('admin');
-        // dd('berhasil');
         if ($this->user) {
             $jumlah = Indikator::getJumlahByOpd();
             $jumlah_opd = 0;

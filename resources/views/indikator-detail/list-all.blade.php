@@ -5,10 +5,10 @@
 @section('indicator-detail-list')
 
 <div class="margin-judul">
-    <h1>Manajemen Data Indikator</h1>
+    <h1>Daftar Per Indikator</h1>
     <ol class="breadcrumb" style="background: none; padding: 10px 0px;">
         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-        <li class="active">Semua Detail Indikator</li>
+        <li class="active">Semua Data Indikator</li>
     </ol>
 </div>
 
@@ -78,6 +78,12 @@
                             </td>
                             <td>
                                 {{ $datas->tahun }}
+                            </td>
+                            <td>
+                                {{ $datas->target }}
+                            </td>
+                            <td>
+                                {{ $datas->capaian }}
                             </td>
                             <td>
                                 {{ $datas->indikator->opd->name }}
@@ -153,9 +159,7 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>
-
                                 <b>{{$verifieds->indikator->name}}<b>
-
                             </td>
                             </a>
                             <td>
@@ -166,6 +170,12 @@
                             </td>
                             <td>
                                 {{ $verifieds->tahun }}
+                            </td>
+                            <td>
+                                {{ $verifieds->target }}
+                            </td>
+                            <td>
+                                {{ $verifieds->capaian }}
                             </td>
                             <td>
                                 {{ $verifieds->indikator->opd->name }}
@@ -240,9 +250,7 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>
-
                                 <b>{{$unverifieds->indikator->name}}<b>
-
                             </td>
                             </a>
                             <td>
@@ -253,6 +261,11 @@
                             </td>
                             <td>
                                 {{ $unverifieds->tahun }}
+                            </td><td>
+                                {{ $unverifieds->target }}
+                            </td>
+                            <td>
+                                {{ $unverifieds->capaian }}
                             </td>
                             <td>
                                 {{ $unverifieds->indikator->opd->name }}
